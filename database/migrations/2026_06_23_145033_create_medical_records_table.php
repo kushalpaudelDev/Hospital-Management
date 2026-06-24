@@ -6,20 +6,26 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
+   
     public function up(): void
     {
         Schema::create('medical_records', function (Blueprint $table) {
             $table->id();
+          $table->foreignId('patient_id')->constrained();
+            $table->foreignId('doctor_id')->constrained();
+            $table->foreignId('appointment_id')->constrained();
+            $table->text('chief_complaint');
+            $table->text('examination_findings')->nullable();
+            $table->text('diagnosis');
+            $table->text('treatment_plan')->nullable();
+            $table->text('notes')->nullable();
+            $table->date('record_date');
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
+
+    
     public function down(): void
     {
         Schema::dropIfExists('medical_records');

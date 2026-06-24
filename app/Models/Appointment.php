@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models\Models;
+namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class TimeSlot extends Model
+class Appointment extends Model
 {
     //
 }

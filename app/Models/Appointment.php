@@ -3,11 +3,11 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Appointment extends Model
 {
-
-protected $fillable = [
+    protected $fillable = [
         'appointment_number', 'patient_id', 'doctor_id',
         'appointment_date', 'appointment_time', 'type',
         'symptoms', 'notes', 'status', 'created_by'
@@ -37,4 +37,3 @@ protected $fillable = [
         return $this->belongsTo(MedicalRecord::class);
     }
 }
-

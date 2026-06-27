@@ -5,13 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
+/**
+ * @property string $first_name
+ * @property string $last_name
+ */
 class Patient extends Model
 {
     protected $fillable = [
         'patient_id', 'first_name', 'last_name', 'email', 'phone',
         'date_of_birth', 'gender', 'blood_group', 'address',
         'emergency_contact_name', 'emergency_contact_phone',
-        'allergies', 'chronic_diseases', 'status'
+        'allergies', 'chronic_diseases', 'status',
     ];
 
     protected $casts = [

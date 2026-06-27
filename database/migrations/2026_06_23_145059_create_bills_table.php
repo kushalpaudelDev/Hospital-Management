@@ -6,12 +6,11 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    
     public function up(): void
     {
         Schema::create('bills', function (Blueprint $table) {
             $table->id();
-           $table->string('bill_number')->unique();
+            $table->string('bill_number')->unique();
             $table->foreignId('patient_id')->constrained();
             $table->foreignId('appointment_id')->nullable()->constrained();
             $table->decimal('subtotal', 12, 2)->default(0);
@@ -24,7 +23,6 @@ return new class extends Migration
             $table->timestamps();
         });
     }
-
 
     public function down(): void
     {

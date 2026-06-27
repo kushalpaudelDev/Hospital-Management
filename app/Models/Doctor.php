@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Doctor extends Model
 {
-        protected $fillable = [
+    protected $fillable = [
         'user_id', 'department_id', 'specialization', 'license_number',
         'qualification', 'experience_years', 'consultation_fee',
-        'phone', 'address', 'is_available'
+        'phone', 'address', 'is_available',
     ];
 
     public function user(): BelongsTo

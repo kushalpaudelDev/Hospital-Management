@@ -3,8 +3,8 @@
 namespace Database\Seeders;
 
 use App\Models\Appointment;
-use App\Models\Patient;
 use App\Models\Doctor;
+use App\Models\Patient;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 

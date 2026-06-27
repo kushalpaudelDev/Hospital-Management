@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use App\Models\Prescription;
 use App\Models\Payment;
-use App\Observers\PrescriptionObserver;
+use App\Models\Prescription;
 use App\Observers\PaymentObserver;
+use App\Observers\PrescriptionObserver;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider

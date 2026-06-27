@@ -9,7 +9,7 @@ class PatientMedicalHistory extends Model
 {
     protected $fillable = [
         'patient_id', 'condition', 'description',
-        'diagnosed_date', 'status', 'treatment'
+        'diagnosed_date', 'status', 'treatment',
     ];
 
     protected $casts = [

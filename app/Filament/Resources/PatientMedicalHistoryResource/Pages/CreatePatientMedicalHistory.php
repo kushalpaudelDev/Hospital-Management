@@ -3,7 +3,6 @@
 namespace App\Filament\Resources\PatientMedicalHistoryResource\Pages;
 
 use App\Filament\Resources\PatientMedicalHistoryResource;
-use Filament\Actions;
 use Filament\Resources\Pages\CreateRecord;
 
 class CreatePatientMedicalHistory extends CreateRecord

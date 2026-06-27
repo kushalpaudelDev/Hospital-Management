@@ -3,15 +3,11 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\LabTestTypeResource\Pages;
-use App\Filament\Resources\LabTestTypeResource\RelationManagers;
 use App\Models\LabTestType;
-use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class LabTestTypeResource extends Resource
 {

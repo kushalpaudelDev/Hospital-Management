@@ -6,14 +6,11 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
-           $table->foreignId('bill_id')->constrained();
+            $table->foreignId('bill_id')->constrained();
             $table->decimal('amount', 12, 2);
             $table->enum('method', ['cash', 'card', 'bank_transfer', 'insurance', 'online']);
             $table->string('transaction_id')->nullable()->unique();
@@ -23,9 +20,6 @@ return new class extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('payments');

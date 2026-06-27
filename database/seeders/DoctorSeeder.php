@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
+use App\Models\Department;
 use App\Models\Doctor;
 use App\Models\User;
-use App\Models\Department;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
 
@@ -39,16 +39,16 @@ class DoctorSeeder extends Seeder
             Doctor::create([
                 'user_id' => $user->id,
                 'department_id' => $departments[$index]->id,
-                'specialization' => match($index) {
+                'specialization' => match ($index) {
                     0 => 'Cardiologist',
                     1 => 'Neurologist',
                     2 => 'Orthopedic Surgeon',
                 },
-                'license_number' => 'NMC-' . (1000 + $index),
+                'license_number' => 'NMC-'.(1000 + $index),
                 'qualification' => 'MBBS, MD',
                 'experience_years' => 10 + $index * 2,
                 'consultation_fee' => 500 + ($index * 200),
-                'phone' => '981000000' . ($index + 1),
+                'phone' => '981000000'.($index + 1),
                 'address' => 'Kathmandu, Nepal',
                 'is_available' => true,
             ]);

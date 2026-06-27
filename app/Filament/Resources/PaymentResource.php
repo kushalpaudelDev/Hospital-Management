@@ -3,6 +3,7 @@
 namespace App\Filament\Resources;
 
 use App\Filament\Resources\PaymentResource\Pages;
+use App\Models\Bill;
 use App\Models\Payment;
 use Filament\Forms;
 use Filament\Forms\Form;
@@ -13,8 +14,11 @@ use Filament\Tables\Table;
 class PaymentResource extends Resource
 {
     protected static ?string $model = Payment::class;
+
     protected static ?string $navigationIcon = 'heroicon-o-credit-card';
+
     protected static ?string $navigationGroup = 'Billing';
+
     protected static ?int $navigationSort = 6;
 
     public static function form(Form $form): Form
@@ -29,7 +33,7 @@ class PaymentResource extends Resource
                     ->live()
                     ->afterStateUpdated(function ($state, Forms\Set $set) {
                         if ($state) {
-                            $bill = \App\Models\Bill::find($state);
+                            $bill = Bill::find($state);
                             if ($bill) {
                                 $set('amount', $bill->balance);
                             }

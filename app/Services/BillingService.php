@@ -4,14 +4,13 @@ namespace App\Services;
 
 use App\Models\Bill;
 use App\Models\Prescription;
-use App\Models\PrescriptionItem;
 
 class BillingService
 {
     public static function generateFromPrescription(Prescription $prescription): Bill
     {
         $subtotal = 0;
-        
+
         // Calculate from prescription items
         foreach ($prescription->items as $item) {
             $medicine = $item->medicine;
@@ -27,7 +26,7 @@ class BillingService
         $totalAmount = $subtotal + $taxAmount;
 
         return Bill::create([
-            'bill_number' => 'BILL-' . date('Y') . '-' . str_pad(Bill::count() + 1, 4, '0', STR_PAD_LEFT),
+            'bill_number' => 'BILL-'.date('Y').'-'.str_pad(Bill::count() + 1, 4, '0', STR_PAD_LEFT),
             'patient_id' => $prescription->patient_id,
             'appointment_id' => $prescription->medicalRecord->appointment_id ?? null,
             'subtotal' => $subtotal,

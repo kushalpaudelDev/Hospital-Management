@@ -13,8 +13,11 @@ use Filament\Tables\Table;
 class BillResource extends Resource
 {
     protected static ?string $model = Bill::class;
+
     protected static ?string $navigationIcon = 'heroicon-o-currency-dollar';
+
     protected static ?string $navigationGroup = 'Billing';
+
     protected static ?int $navigationSort = 5;
 
     public static function form(Form $form): Form

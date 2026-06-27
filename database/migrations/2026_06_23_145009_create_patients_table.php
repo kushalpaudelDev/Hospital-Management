@@ -6,12 +6,11 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    
     public function up(): void
     {
         Schema::create('patients', function (Blueprint $table) {
             $table->id();
-           $table->string('patient_id')->unique();
+            $table->string('patient_id')->unique();
             $table->string('first_name');
             $table->string('last_name');
             $table->string('email')->nullable();
@@ -25,10 +24,10 @@ return new class extends Migration
             $table->text('allergies')->nullable();
             $table->text('chronic_diseases')->nullable();
             $table->enum('status', ['active', 'inactive', 'deceased'])->default('active');
+            $table->timestamps();
         });
     }
 
-    
     public function down(): void
     {
         Schema::dropIfExists('patients');

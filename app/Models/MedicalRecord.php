@@ -8,10 +8,10 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 
 class MedicalRecord extends Model
 {
-  protected $fillable = [
+    protected $fillable = [
         'patient_id', 'doctor_id', 'appointment_id',
         'chief_complaint', 'examination_findings',
-        'diagnosis', 'treatment_plan', 'notes', 'record_date'
+        'diagnosis', 'treatment_plan', 'notes', 'record_date',
     ];
 
     protected $casts = [

@@ -9,6 +9,10 @@ use Filament\Forms\Form;
 use Filament\Resources\Resource;
 use Filament\Tables;
 use Filament\Tables\Table;
+use Maatwebsite\Excel\Excel;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportAction;
+use pxlrbt\FilamentExcel\Actions\Tables\ExportBulkAction;
+use pxlrbt\FilamentExcel\Exports\ExcelExport;
 
 class AppointmentResource extends Resource
 {
@@ -162,9 +166,19 @@ class AppointmentResource extends Resource
                     ])),
                 Tables\Actions\EditAction::make(),
             ])
+            ->headerActions([
+                ExportAction::make()->exports([
+                    ExcelExport::make('table')->withWriterType(Excel::XLSX)->label('Export Excel'),
+                    ExcelExport::make('table')->withWriterType(Excel::DOMPDF)->label('Export PDF'),
+                ]),
+            ])
             ->bulkActions([
                 Tables\Actions\BulkActionGroup::make([
                     Tables\Actions\DeleteBulkAction::make(),
+                    ExportBulkAction::make()->exports([
+                        ExcelExport::make('table')->withWriterType(Excel::XLSX)->label('Export Excel'),
+                        ExcelExport::make('table')->withWriterType(Excel::DOMPDF)->label('Export PDF'),
+                    ]),
                 ]),
             ])
             ->defaultSort('appointment_date', 'desc');
@@ -173,7 +187,7 @@ class AppointmentResource extends Resource
     public static function getRelations(): array
     {
         return [
-            //
+
         ];
     }
 
